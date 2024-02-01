@@ -1,4 +1,5 @@
 #%% 3.4 : Classifying movie
+#nvidia-smi -l 5
 import numpy as np
 from keras.datasets import imdb
 
@@ -150,7 +151,7 @@ partial_y_train=y_train[10000:]
 
 history=model.fit(partial_x_train,
                   partial_y_train,
-                  epochs=4,
+                  epochs=20,
                   batch_size=512,
                   validation_data=(x_val,y_val))
 results=model.evaluate(x_test,y_test)
