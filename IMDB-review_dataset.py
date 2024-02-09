@@ -143,9 +143,11 @@ y_test=np.asarray(test_labels).astype('float32')
 
 
 model=models.Sequential()
-model.add(layers.Dense(64,activation='tanh',input_shape=(10000,)))
-#model.add(layers.Dense(64,activation='tanh'))
-#model.add(layers.Dense(64,activation='relu'))
+model.add(layers.Dense(1,activation='tanh',input_shape=(10000,)))
+#model.add(layers.Dense(2,activation='tanh'))
+#model.add(layers.Dense(2,activation='tanh'))
+#model.add(layers.Dense(4,activation='relu'))
+#model.add(layers.Dense(16,activation='tanh'))
 model.add(layers.Dense(1,activation='sigmoid'))
 
 
@@ -166,7 +168,7 @@ partial_y_train=y_train[10000:]
 
 history=model.fit(partial_x_train,
                   partial_y_train,
-                  epochs=5,
+                  epochs=20,
                   batch_size=512,
                   validation_data=(x_val,y_val))
 results=model.evaluate(x_test,y_test)
@@ -208,6 +210,7 @@ plt.ylabel('Loss')
 plt.legend()
 
 plt.show
+
 
 
 
