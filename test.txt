@@ -1,0 +1,29 @@
+
+
+1. Overfitting / underfitting : comment le gérer ?
+
+    1.0 Get more training data
+
+    1.1 Ajuster la taille du network (4.4.1)
+
+    1.2 Weight regularization :
+        Agir sur les paramètres (interne) du système en leurs 
+        mettant des restrictions : 
+        On restreint les poids (changeant les paramètres du systèmes)
+        a de petites valeurs afin qu'ils ne changent pas trop rapidement le système
+        
+            Ceci est réalisé en ajouter au système une notion de coût :
+                L1 regularization : The  cost  added  is  proportional  to  the  absolute  value  of  the
+                                    weight coefficients
+
+
+                L2 regularization or weight decay : The cost added is proportional to the square of the value of the
+                                    weight  coefficients 
+
+    1.3 Dropout (bcp utilisé)
+        Consiste à transformer en zero de manière aléatoire 
+        certains paramètres de la sortie du layout (généralement entre 20 et 50%)
+
+
+
+Guide étape par étape pour la création d'un système deep learning = 4.5
