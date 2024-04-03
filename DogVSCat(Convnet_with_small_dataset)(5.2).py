@@ -68,7 +68,7 @@ model.add(layers.Dense(1, activation='sigmoid'))
 model.summary()
 
 model.compile(loss='binary_crossentropy',
-              optimizer=optimizers.RMSprop(lr=1e-4),
+              optimizer=optimizers.RMSprop(learning_rate=1e-4),
               metrics=['acc']
               )
 
@@ -97,7 +97,7 @@ for layer in conv_base.layers:
         layer.trainable=False
 
 model.compile(loss='binary_crossentropy',
-              optimizer=optimizers.RMSprop(lr=1e-4),
+              optimizer=optimizers.RMSprop(learning_rate=1e-4),
               metrics=['acc']
               )
 
@@ -133,9 +133,7 @@ test_generator = test_datagen.flow_from_directory(
     batch_size=20,
     class_mode='binary')
 
-test_loss, test_acc = model.evaluate_generator(test_generator, steps=50)
+test_loss, test_acc = model.evaluate(test_generator, steps=50)
 print('test acc:', test_acc)
 
-
-#17:37
 
